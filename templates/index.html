@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+   
+	{% if data %}
+	<h3>{{data}}</h3>
+	{% else %}
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='test.css') }}">
+		<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+		<script src="{{ url_for('static', filename='script.js') }}"></script>
+		
+	</head>
+
+  <div id="range1">
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">
+          <div class="login-wr">
+						<section><h1>Контрольные вопросы</h1>
+							<h2>Тема</h2>
+						</section>
+						<a href="test" class="dws-submit" type="submit">Пройти тест</a>
+						<a class="dws-submit" href="/logout">Выйти</a> <br> <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+	<footer>
+
+	</footer>
+	
+	{% endif %}
+
+{% else %}
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='test.css') }}">
+
+	<div id="range1">
+    <div class="outer">
+     		<div class="middle">
+        	<div class="inner">
+  					<div class="login-wr">
+						Тестирование
+						   <br><br>								
+						<a class="dws-submit" href="/login">Авторизация</a> 
+						<a class="dws-submit" href="/register">Регистрация</a>
+						</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endif %}
+{% endblock %}
